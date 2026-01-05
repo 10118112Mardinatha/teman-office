@@ -1,18 +1,39 @@
-import { motion } from "framer-motion";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import WhatsAppFloating from "./components/WhatsAppFloating";
+
+import Home from "./pages/Home";
+import SumPage from "./components/rumus/SumPage";
+import AveragePage from "./components/rumus/AveragePage";
+import RumusLayout from "./components/rumus/RumusLayout";
 
 export default function App() {
   return (
-    <div className="h-screen flex items-center justify-center bg-blue-100">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white p-6 rounded-xl shadow-lg"
-      >
-        <h1 className="text-2xl font-bold text-blue-600">
-          Framer Motion Aktif 🎉
-        </h1>
-      </motion.div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+        {/* HOME + ABOUT + CONTACT */}
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home />
+              <Footer />
+              <WhatsAppFloating />
+            </>
+          }
+        />
+
+        {/* RUMUS */}
+        <Route element={<RumusLayout />}>
+          <Route path="/rumus/sum" element={<SumPage />} />
+          <Route path="/rumus/average" element={<AveragePage />} />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
   );
 }
