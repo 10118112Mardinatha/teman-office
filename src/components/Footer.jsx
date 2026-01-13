@@ -6,6 +6,7 @@ import {
   Mail,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const menu = [
   { label: "Home", href: "#home" },
@@ -22,9 +23,15 @@ const socials = [
 
 export default function Footer() {
   const [active, setActive] = useState("home");
+  const location = useLocation();
 
-  // Detect section on scroll
+  // ✅ DETEKSI HALAMAN RUMUS
+  const isRumusPage = location.pathname.startsWith("/rumus");
+
+  // Detect section on scroll (tetap utuh)
   useEffect(() => {
+    if (isRumusPage) return; // ⛔ tidak perlu scroll spy di halaman rumus
+
     const handler = () => {
       menu.forEach((item) => {
         const section = document.querySelector(item.href);
@@ -39,10 +46,10 @@ export default function Footer() {
 
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
-  }, []);
+  }, [isRumusPage]);
 
   return (
-    <footer className=" text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700">
+    <footer className="text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700">
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col gap-8">
 
         {/* TOP ROW */}
@@ -51,38 +58,40 @@ export default function Footer() {
           {/* Brand */}
           <div className="max-w-md">
             <h3 className="text-xl font-bold">
-              TemanOffice 📊
+              KawanOffice 📊
             </h3>
             <p className="text-white/80 text-sm mt-2">
               Belajar rumus Excel jadi mudah, fun, dan bisa dipraktikkan langsung.
             </p>
           </div>
 
-          {/* Menu */}
-          <nav className="flex flex-wrap gap-6 text-sm font-medium">
-            {menu.map((item) => {
-              const isActive = active === item.label.toLowerCase();
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className={`relative transition
-                    ${
-                      isActive
-                        ? "text-yellow-300"
-                        : "text-white/80 hover:text-white"
-                    }`}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-yellow-300 rounded-full" />
-                  )}
-                </a>
-              );
-            })}
-          </nav>
+          {/* ✅ MENU (HILANG SAAT DI /rumus) */}
+          {!isRumusPage && (
+            <nav className="flex flex-wrap gap-6 text-sm font-medium">
+              {menu.map((item) => {
+                const isActive = active === item.label.toLowerCase();
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className={`relative transition
+                      ${
+                        isActive
+                          ? "text-yellow-300"
+                          : "text-white/80 hover:text-white"
+                      }`}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-yellow-300 rounded-full" />
+                    )}
+                  </a>
+                );
+              })}
+            </nav>
+          )}
 
-          {/* Social */}
+          {/* Social (TETAP ADA) */}
           <div className="flex gap-3">
             {socials.map((item, i) => {
               const Icon = item.icon;

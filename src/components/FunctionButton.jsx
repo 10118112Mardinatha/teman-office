@@ -9,7 +9,7 @@ const iconMap = {
 const colorMap = {
   SUM: "from-green-100 to-green-200 text-green-700",
   AVERAGE: "from-blue-100 to-blue-200 text-blue-700",
-  IF: "from-purple-100 to-purple-200 text-purple-700",
+  IF: "from-purple-100 to-purple-200 text-purple-700",  
 };
 
 export default function FunctionButton({ name, desc }) {

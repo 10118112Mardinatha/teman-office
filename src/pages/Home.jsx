@@ -1,58 +1,173 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import {
+  FaCalculator,
+  FaSortNumericUp,
+  FaBrain,
+  FaFont,
+  FaCalendarAlt,
+  FaSearch,
+} from "react-icons/fa";
+
 import IntroCard from "../components/IntroCard";
-import FunctionButton from "../components/FunctionButton";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 
+const categories = [
+  {
+    title: "Rumus Perhitungan",
+    desc: "Penjumlahan & statistik",
+    icon: <FaCalculator />,
+    color: "from-green-400 to-green-600",
+    items: ["SUM", "AVERAGE", "COUNT", "COUNTA", "MAX", "SUMPRODUCT"],
+  },
+  {
+    title: "Rumus Pembulatan",
+    desc: "Pembulatan angka",
+    icon: <FaSortNumericUp />,
+    color: "from-blue-400 to-blue-600",
+    items: ["ROUND", "ROUNDUP", "ROUNDDOWN", "CEILING", "FLOOR"],
+  },
+  {
+    title: "Rumus Logika",
+    desc: "Logika & kondisi",
+    icon: <FaBrain />,
+    color: "from-purple-400 to-purple-600",
+    items: ["IF", "IFS", "AND", "OR"],
+  },
+  {
+    title: "Rumus Teks",
+    desc: "Pengolahan teks",
+    icon: <FaFont />,
+    color: "from-orange-400 to-orange-600",
+    items: ["LEFT", "RIGHT", "MID", "LEN"],
+  },
+  {
+    title: "Rumus Tanggal",
+    desc: "Tanggal & waktu",
+    icon: <FaCalendarAlt />,
+    color: "from-pink-400 to-pink-600",
+    items: ["TODAY", "NOW", "YEAR", "MONTH"],
+  },
+  {
+    title: "Rumus Lookup",
+    desc: "Pencarian data",
+    icon: <FaSearch />,
+    color: "from-indigo-400 to-indigo-600",
+    items: ["VLOOKUP", "HLOOKUP", "XLOOKUP"],
+  },
+];
+
 export default function Home() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const navigate = useNavigate();
+
   return (
     <>
-      {/* HOME */}
-      <section
-        id="home"
-        className="max-w-7xl mx-auto px-6 py-16 space-y-12"
-      >
+      <section id="home" 
+      className="max-w-7xl mx-auto px-6 pt-16 space-y-12">
         <IntroCard />
 
-        <div>
-          <h2 className="text-xl font-bold mb-6">
-            Rumus Perhitungan ✨
-          </h2>
+        <h2 className="text-2xl font-bold">
+          Kategori Rumus Excel ✨
+        </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <FunctionButton name="SUM" desc="Menjumlahkan data" />
-            <FunctionButton name="AVERAGE" desc="Menghitung rata-rata" />
-            <FunctionButton name="COUNT" desc="Menghitung jumlah data" />
-            <FunctionButton name="COUNTA" desc="Menghitung jumlah data (termasuk teks)" />
-            <FunctionButton name="MAX" desc="Menghitung nilai maksimum" />
-            <FunctionButton name="LARGE" desc="Mencari nilai tertinggi kesekian" />
-            <FunctionButton name="SMALL" desc="Mencari nilai terendah kesekian" />
-            <FunctionButton name="SUMPRODUCT" desc="Menghitung hasil perkalian dan menjumlahkan" />  
-          </div>
+        {/* CARD GRID */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-6">
+          {categories.map((cat, i) => (
+            <div key={cat.title} className="space-y-4">
+              {/* CARD */}
+              <motion.div
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                whileHover={{ y: -8 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="
+                  cursor-pointer
+                  rounded-3xl
+                  p-2
+                  min-h-[170px]
+                  text-white
+                  bg-gradient-to-br
+                 
+                "
+                style={{
+                  backgroundImage: `linear-gradient(to bottom right, var(--tw-gradient-stops))`,
+                }}
+              >
+                <div className={`h-full flex flex-col justify-between bg-gradient-to-br ${cat.color} rounded-2xl p-6`}>
+                  <motion.div
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    className="text-4xl"
+                  >
+                    {cat.icon}
+                  </motion.div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold">
+                      {cat.title}
+                    </h3>
+                    <p className="text-sm opacity-90">
+                      {cat.desc}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* SUB MENU */}
+             <AnimatePresence>
+  {openIndex === i && (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 0.25 }}
+      className="
+        backdrop-blur-md
+        bg-white/70
+        rounded-2xl
+        shadow-lg
+        p-4
+        flex flex-wrap gap-2
+      "
+    >
+      {cat.items.map((item) => (
+        <motion.button
+          key={item}
+          whileHover="hover"
+          whileTap={{ scale: 0.96 }}
+          variants={{
+            hover: { scale: 1.05 },
+          }}
+          onClick={() => navigate(`/rumus/${item.toLowerCase()}`)}
+          className="
+            group
+            px-4 py-2
+            rounded-xl
+            text-sm font-medium
+            bg-white
+            text-gray-700
+            shadow-sm
+            flex items-center gap-2
+            transition
+          "
+        >
+          <span>{item}</span>
+          <span className="opacity-0 group-hover:opacity-100 transition">
+            →
+          </span>
+        </motion.button>
+      ))}
+    </motion.div>
+  )}
+</AnimatePresence>
+
+            </div>
+          ))}
         </div>
-
-        <div>
-          <h2 className="text-xl font-bold mb-6">
-            Rumus Pembulatan ✨
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <FunctionButton name="ROUND" desc="Membulatkan angka ke desimal terdekat" />
-            <FunctionButton name="ROUNDUP" desc="Membulatkan angka ke atas" />
-            <FunctionButton name="ROUNDDOWN" desc="Membulatkan angka ke bawah" />
-            <FunctionButton name="CEILING" desc="Membulatkan ke atas ke kelipatan terdekat" />
-            <FunctionButton name="FLOOR" desc="Membulatkan ke bawah ke kelipatan terdekat" />
-            <FunctionButton name="EVEN" desc="Membulatkan ke bilangan genap terdekat" />
-            <FunctionButton name="ODD" desc="Membulatkan ke bilangan ganjil terdekat" />
-            <FunctionButton name="INT" desc="mengambil nilai bulat" />  
-          </div>
-        </div>
-
       </section>
 
-      {/* ABOUT */}
       <About />
-
-      {/* CONTACT */}
       <Contact />
     </>
   );

@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import SidebarRumus from "/src/components/SidebarRumus";
 import WhatsAppFloating from "../WhatsAppFloating";
+import Footer from "../Footer"; 
 
 export default function RumusLayout() {
   return (
+    <>
     <div className="flex min-h-screen">
       <SidebarRumus />
 
@@ -11,7 +13,14 @@ export default function RumusLayout() {
         <Outlet />
         {/* Floating WhatsApp */}
         <WhatsAppFloating />
+        {/* Footer */}
       </main>
+      
     </div>
+
+
+    <Footer />
+  </>
   );
+  
 }
