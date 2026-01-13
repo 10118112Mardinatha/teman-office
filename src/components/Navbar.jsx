@@ -38,8 +38,8 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur">
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-6">
-
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-6 flex-wrap">
+        
         {/* ================= Logo ================= */}
         <motion.a
           href="#home"
@@ -49,15 +49,15 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 300 }}
           className="font-bold text-indigo-600 text-lg whitespace-nowrap cursor-pointer"
         >
-          TemanOffice 📊
+        KawanOffice 📊
         </motion.a>
 
         {/* ================= Search (Center) ================= */}
-        <div className="flex-1 flex justify-center">
+        <div className="flex-1 hidden sm:flex justify-center">
           <motion.div
             animate={{ width: focus ? 320 : 260 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative w-full max-w-md"
+            className="relative w-full max-w-md sm:max-w-xs"
           >
             <input
               value={query}
@@ -84,13 +84,11 @@ export default function Navbar() {
               <motion.a
                 key={item.label}
                 href={item.href}
-                onClick={() =>
-                  setActive(item.href.replace("#", ""))
-                }
+                onClick={() => setActive(item.href.replace("#", ""))}
                 whileHover={{ y: -2 }}
-                className={`relative font-medium transition
-                  ${isActive ? "text-indigo-600" : "text-gray-700"}
-                `}
+                className={`relative font-medium transition ${
+                  isActive ? "text-indigo-600" : "text-gray-700"
+                }`}
               >
                 {item.label}
 
@@ -120,18 +118,19 @@ export default function Navbar() {
         <motion.button
           whileTap={{ scale: 0.85 }}
           onClick={() => setOpen(!open)}
-          className="md:hidden text-2xl"
+          className="md:hidden text-2xl ml-auto"
         >
           ☰
         </motion.button>
       </div>
 
-      {/* ================= Mobile Menu ================= */}
+      {/* ================= Mobile Fullscreen Menu ================= */}
       {open && (
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-white px-6 py-4 space-y-4 shadow"
+          className="md:hidden fixed top-16 left-0 right-0 bottom-0 
+                     bg-white px-6 py-4 space-y-4 shadow z-[999] h-screen overflow-hidden"
         >
           {navItems.map((item) => {
             const isActive = active === item.href.replace("#", "");
@@ -149,11 +148,11 @@ export default function Navbar() {
                   backgroundColor: "rgba(99,102,241,0.15)",
                 }}
                 transition={{ duration: 0.15 }}
-                className={`block rounded-lg px-3 py-2 font-medium
-                  ${isActive
+                className={`block rounded-lg px-3 py-2 font-medium ${
+                  isActive
                     ? "bg-indigo-50 text-indigo-600"
-                    : "text-gray-700"}
-                `}
+                    : "text-gray-700"
+                }`}
               >
                 {item.label}
               </motion.a>
@@ -163,7 +162,7 @@ export default function Navbar() {
           <motion.a
             whileTap={{ scale: 0.95 }}
             href="#explore"
-            className="block text-center bg-indigo-500
+            className="block w-full text-center bg-indigo-500
                        text-white py-2 rounded-full font-semibold"
           >
             Mulai Belajar 🚀
