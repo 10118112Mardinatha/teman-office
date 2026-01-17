@@ -1,7 +1,8 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaCalculator, FaEquals, FaSortNumericUp, FaBars, FaTimes } from "react-icons/fa";
+import { FaCalculator, FaEquals, FaSortNumericUp, FaBars, FaTimes, FaBrain, FaDatabase, FaSearch,FaColumns} from "react-icons/fa";
+import { FaC } from "react-icons/fa6";
 
 const menu = [
   {
@@ -10,6 +11,10 @@ const menu = [
     items: [
       { label: "SUM", path: "/rumus/sum", icon: <FaEquals /> },
       { label: "AVERAGE", path: "/rumus/average", icon: <FaEquals /> },
+      { label: "COUNT", path: "/rumus/count", icon: <FaEquals /> },
+      { label: "COUNTA", path: "/rumus/counta", icon: <FaEquals /> },
+      { label: "MAX", path: "/rumus/max", icon: <FaEquals /> },
+      { label: "SUMPRODUCT", path: "/rumus/sumproduct", icon: <FaEquals /> },
     ],
   },
   {
@@ -19,6 +24,49 @@ const menu = [
       { label: "ROUND", path: "/rumus/round", icon: <FaEquals /> },
       { label: "ROUNDUP", path: "/rumus/roundup", icon: <FaEquals /> },
       { label: "ROUNDDOWN", path: "/rumus/rounddown", icon: <FaEquals /> },
+      { label: "CEILING", path: "/rumus/ceiling", icon: <FaEquals /> },
+      { label: "FLOOR", path: "/rumus/floor", icon: <FaEquals /> },
+    ],
+  },
+  {
+    title: "Rumus Logika",
+    icon: <FaBrain />,
+    items: [
+      { label: "IF", path: "/rumus/if", icon: <FaEquals /> },
+      { label: "AND", path: "/rumus/and", icon: <FaEquals /> },
+      { label: "OR", path: "/rumus/or", icon: <FaEquals /> },
+      { label: "NOT", path: "/rumus/not", icon: <FaEquals /> },
+      { label: "IFS", path: "/rumus/ifs", icon: <FaEquals /> },
+    ],
+  },
+  {
+    title: "Rumus Ekstrak Data",
+    icon: <FaDatabase />,
+    items: [
+      { label: "LEFT", path: "/rumus/left", icon: <FaEquals /> },
+      { label: "MID", path: "/rumus/mid", icon: <FaEquals /> },
+      { label: "RIGHT", path: "/rumus/right", icon: <FaEquals /> },
+      { label: "LEN", path: "/rumus/len", icon: <FaEquals /> },
+    
+    ],
+  },
+  {
+    title: "Rumus Merapikan Data",
+    icon: <FaColumns />,
+    items: [
+      { label: "CONCATENATE", path: "/rumus/concatenate", icon: <FaEquals /> },
+      { label: "AMPERSAND", path: "/rumus/&", icon: <FaEquals /> },
+      { label: "LOWER", path: "/rumus/lower", icon: <FaEquals /> },
+      { label: "UPPER", path: "/rumus/upper", icon: <FaEquals /> },
+      { label: "PROPER", path: "/rumus/proper", icon: <FaEquals /> },
+    ],
+  },
+  {
+    title: "Rumus Lookup",
+    icon: <FaSearch/>,
+    items: [
+      { label: "VLOOKUP", path: "/rumus/vlookup", icon: <FaEquals /> },
+      { label: "HLOOKUP", path: "/rumus/hlookup", icon: <FaEquals /> },
     ],
   },
 ];
@@ -149,11 +197,21 @@ export default function SidebarRumus() {
 
      {/* Desktop Sidebar (scrollable + collapsible) */}
 <aside
-  className={`hidden md:flex md:flex-col fixed top-0 left-0 
-    bg-gradient-to-b from-green-600 via-green-700 to-green-800 text-white shadow-lg
-    transition-all duration-300 ${collapsed ? "w-30" : "w-64"} 
-    h-screen overflow-y-auto z-40`}
+  className={`
+    hidden md:flex md:flex-col
+    bg-gradient-to-b from-green-600 via-green-700 to-green-800
+    text-white shadow-lg
+    transition-all duration-300
+
+    ${collapsed ? "w-32" : "w-64"}
+
+    sticky top-0
+    min-h-screen
+    max-h-screen
+    overflow-y-auto
+  `}
 >
+
   <div className="flex items-center justify-between p-3">
     <button
       onClick={() => navigate("/")}

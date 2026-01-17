@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -7,11 +8,47 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
+// data categories untuk search
+const categories = [
+  {
+    title: "Rumus Perhitungan",
+    items: ["SUM", "AVERAGE", "COUNT", "COUNTA", "MAX", "SUMPRODUCT"],
+  },
+  {
+    title: "Rumus Pembulatan",
+    items: ["ROUND", "ROUNDUP", "ROUNDDOWN", "CEILING", "FLOOR"],
+  },
+  {
+    title: "Rumus Logika",
+    items: ["IF", "IFS", "AND", "OR"],
+  },
+  {
+    title: "Rumus Ekstrak Data",
+    items: ["LEFT", "RIGHT", "MID", "LEN"],
+  },
+  {
+    title: "Rumus Merapikan Data",
+    items: ["CONCATENATE", "&", "UPPER", "LOWER", "PROPER"],
+  },
+  {
+    title: "Rumus Lookup",
+    items: ["VLOOKUP", "HLOOKUP", "INDEX", "MATCH"],
+  },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [focus, setFocus] = useState(false);
   const [query, setQuery] = useState("");
   const [active, setActive] = useState("home");
+  const navigate = useNavigate();
+
+  // filter semua items dari categories
+  const results = categories.flatMap((cat) =>
+    cat.items
+      .filter((item) => item.toLowerCase().includes(query.toLowerCase()))
+      .map((item) => ({ category: cat.title, item }))
+  );
 
   /* ===============================
      Scroll Spy (Active Menu)
@@ -39,7 +76,6 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white/70 backdrop-blur">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center gap-6 flex-wrap">
-        
         {/* ================= Logo ================= */}
         <motion.a
           href="#home"
@@ -49,31 +85,64 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 300 }}
           className="font-bold text-indigo-600 text-lg whitespace-nowrap cursor-pointer"
         >
-        KawanOffice 📊
+          KawanOffice 📊
         </motion.a>
 
         {/* ================= Search (Center) ================= */}
-        <div className="flex-1 hidden sm:flex justify-center">
-          <motion.div
-            animate={{ width: focus ? 320 : 260 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative w-full max-w-md sm:max-w-xs"
-          >
-            <input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onFocus={() => setFocus(true)}
-              onBlur={() => setFocus(false)}
-              placeholder="Cari rumus"
-              className="w-full px-4 py-2 pl-10 rounded-full
-                         bg-white shadow-md text-sm
-                         focus:outline-none focus:ring-2 focus:ring-indigo-400"
-            />
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer">
-              🔍
-            </span>
-          </motion.div>
-        </div>
+        <div className="flex-1 hidden sm:flex justify-center relative">
+  <motion.div
+    animate={{ width: focus ? 320 : 260 }}
+    transition={{ type: "spring", stiffness: 300, damping: 25 }}
+    className="relative w-full max-w-md sm:max-w-xs"
+  >
+    <input
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      onFocus={() => setFocus(true)}
+      onBlur={() => setFocus(false)}
+      placeholder="Cari rumus"
+      className="w-full px-4 py-2 pl-10 rounded-full
+                 bg-white shadow-md text-sm
+                 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    />
+    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+      🔍
+    </span>
+  </motion.div>
+
+  {/* Dropdown hasil pencarian */}
+  <AnimatePresence>
+    {focus && query && (
+      <motion.div
+        initial={{ opacity: 0, y: -5 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -5 }}
+        className="absolute top-12 w-72 bg-white rounded-xl shadow-lg p-2 z-50"
+      >
+        {results.length > 0 ? (
+          results.map((res) => (
+            <button
+              key={res.item}
+              onMouseDown={() =>
+                navigate(`/rumus/${res.item.toLowerCase()}`)
+              }
+              className="w-full text-left px-3 py-2 rounded-lg hover:bg-indigo-50 text-sm"
+            >
+              <span className="font-medium">{res.item}</span>
+              <span className="text-gray-400 text-xs ml-2">
+                {res.category}
+              </span>
+            </button>
+          ))
+        ) : (
+          <div className="px-3 py-2 text-sm text-gray-500">
+            Hasil tidak ditemukan ❌
+          </div>
+        )}
+      </motion.div>
+    )}
+  </AnimatePresence>
+</div>
 
         {/* ================= Desktop Menu ================= */}
         <div className="hidden md:flex items-center gap-6">
@@ -106,7 +175,7 @@ export default function Navbar() {
           <motion.a
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            href="#explore"
+            href="./rumus/sum"
             className="px-4 py-2 rounded-full bg-indigo-500
                        text-white text-sm font-semibold shadow"
           >
@@ -149,9 +218,7 @@ export default function Navbar() {
                 }}
                 transition={{ duration: 0.15 }}
                 className={`block rounded-lg px-3 py-2 font-medium ${
-                  isActive
-                    ? "bg-indigo-50 text-indigo-600"
-                    : "text-gray-700"
+                  isActive ? "bg-indigo-50 text-indigo-600" : "text-gray-700"
                 }`}
               >
                 {item.label}

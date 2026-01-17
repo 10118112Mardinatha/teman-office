@@ -6,21 +6,19 @@ import Footer from "../Footer";
 export default function RumusLayout() {
   return (
     <>
-    <div className="flex min-h-screen">
-      <SidebarRumus />
+      <div className="flex min-h-screen">
+        <SidebarRumus />
 
-      <main className="flex-1 p-5 relative">
-        <Outlet />
-        {/* Floating WhatsApp */}
-        <WhatsAppFloating />
-        {/* Footer */}
-      </main>
-      
-    </div>
+        <main className="flex-1 p-5 pt-16 md:pt-6">
+          <Outlet />
+          <WhatsAppFloating />
+        </main>
+      </div>
 
-
-    <Footer />
-  </>
+      <Footer />
+    </>
   );
-  
 }
+
+  
+

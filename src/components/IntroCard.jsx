@@ -25,10 +25,9 @@ export default function IntroCard() {
         
         {/* LEFT CONTENT */}
         <div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            Selamat Datang di{" "}
-            <span className="text-yellow-300">Kawan Office</span>
-          </h1>
+         <h1 className="text-3xl md:text-5xl font-bold mb-4">
+  Selamat Datang di <span className="text-yellow-300">Kawan Office</span> – Belajar Microsoft Excel Online
+</h1>
 
           <h2 className="text-xl md:text-2xl font-semibold mb-4">
             {text}
@@ -49,7 +48,7 @@ export default function IntroCard() {
         >
           <img
             src="/src/assets/excel1.svg"
-            alt="Excel Illustration"
+            alt="Ilustrasi belajar Microsoft Excel online di Kawan Office"
             className="
               w-56
               sm:w-64

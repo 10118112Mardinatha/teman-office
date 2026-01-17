@@ -1,12 +1,12 @@
 import RumusTemplate from "../../components/rumus/RumusTemplate";
-import AverageImg from "/src/assets/contoh/average2.png";   
+import Not2 from "/src/assets/contoh/not2.png";   
 import ExcelEmbed from "./ExcelEmbed";
 import { useState } from "react";
 
-export default function AveragePage() {
+export default function NotPage() {
   const [startTest, setStartTest] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [zoom, setZoom] = useState(false); // <-- state untuk zoom
+  const [zoom, setZoom] = useState(false);
 
   const handleStart = () => {
     setLoading(true);
@@ -18,12 +18,12 @@ export default function AveragePage() {
 
   return (
     <RumusTemplate
-      title="AVERAGE"
-      functionDesc="Fungsi AVERAGE digunakan untuk menghitung nilai rata-rata dari sekumpulan angka."
-      usage="Gunakan AVERAGE saat kamu ingin mengetahui rata-rata nilai, misalnya rata-rata ujian siswa atau rata-rata penjualan."
-      example="=AVERAGE(B2:B6)"
-      templaterumus={'=AVERAGE(number1, [number2], ...)\nnumber1 → angka pertama\nnumber2 → angka kedua (opsional)'}
-      usageImage="/src/assets/contoh/average1.png"
+      title="NOT"
+      functionDesc="Fungsi NOT digunakan untuk membalikkan hasil logika. Jika kondisi TRUE maka hasilnya FALSE, dan jika kondisi FALSE maka hasilnya TRUE."
+      usage="Gunakan NOT saat kamu ingin memastikan kebalikan dari suatu kondisi. Misalnya, seorang siswa dianggap TIDAK LULUS jika nilai Matematika TIDAK lebih dari 70."
+      example="=NOT(B2>70)"
+      templaterumus={`=NOT(logical) \n logical → kondisi yang diuji`}
+      usageImage="/src/assets/contoh/not1.png"
       videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
       test={
         <div className="mt-4 space-y-6 w-full">
@@ -34,14 +34,14 @@ export default function AveragePage() {
             </h3>
             <p className="text-sm text-gray-700 leading-relaxed">
               Perhatikan data nilai siswa di Excel.  
-              Tugas kamu adalah menghitung <strong>rata-rata nilai</strong> 
-              menggunakan rumus <strong>AVERAGE</strong>.
+              Tugas kamu adalah menentukan apakah seorang siswa <strong>TIDAK LULUS</strong> 
+              dengan menggunakan rumus <strong>NOT</strong>.
             </p>
             <ul className="list-disc pl-5 text-sm text-gray-600 space-y-2">
-              <li>Gunakan <strong>fungsi AVERAGE</strong> (bukan hitung manual).</li>
-              <li>Hitung rata-rata dari nilai yang tersedia.</li>
+              <li>Gunakan <strong>fungsi NOT</strong> (bukan logika manual).</li>
+              <li>Syarat: Nilai Matematika &gt;= 70 → LULUS, gunakan NOT untuk membalikkan hasil.</li>
               <li>Tulis rumus pada <strong>cell yang sudah disediakan</strong>.</li>
-              <li>Jika benar, Excel akan menampilkan hasil rata-rata.</li>
+              <li>Jika benar, Excel akan menampilkan status <strong>TIDAK LULUS</strong>.</li>
             </ul>
             <div className="bg-white border rounded-lg p-3 text-xs text-gray-500">
               💡 Tips: Gunakan tanda <strong>=</strong> untuk memulai rumus
@@ -71,7 +71,7 @@ export default function AveragePage() {
           {/* EXCEL */}
           {startTest && !loading && (
             <ExcelEmbed
-              src="https://1drv.ms/x/c/7e81b692dc16e3ee/IQRaXOy-vd55S5RYwutjgNG7AfnJrDzlXt9GSyfKAuKiiMk?em=2&AllowTyping=True&ActiveCell='Sheet1'!B7&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
+              src="https://1drv.ms/x/c/7e81b692dc16e3ee/IQS9VLd8hXnzSqwkxEM4Hbf4AchT6rkLR4iY_oKNgldog60?em=2&AllowTyping=True&ActiveCell='Sheet1'!C2&wdDownloadButton=True&wdInConfigurator=True&wdInConfigurator=True"
             />
           )}
         </div>
@@ -80,55 +80,49 @@ export default function AveragePage() {
 
       {/* CONTOH KASUS */}
       <div className="space-y-5 w-full">
-        {/* JUDUL */}
         <div>
-          <h3 className="font-semibold text-lg mb-1">Menghitung Rata-rata Nilai</h3>
+          <h3 className="font-semibold text-lg mb-1">Membalikkan Kondisi</h3>
           <p className="text-sm text-gray-600">
-            Perhatikan contoh data nilai siswa di Excel berikut. Kita ingin menghitung rata-rata nilai menggunakan rumus AVERAGE.
+            Perhatikan contoh data nilai siswa di Excel berikut. Kita ingin menentukan apakah siswa TIDAK LULUS dengan membalikkan kondisi menggunakan rumus NOT.
           </p>
         </div>
 
-        {/* GAMBAR CONTOH */}
         <div className="flex justify-center">
           <img
-            src={AverageImg}
-            alt="Contoh penggunaan rumus AVERAGE di Excel"
+            src={Not2}
+            alt="Contoh penggunaan rumus NOT di Excel"
             className="max-h-72 rounded-xl border shadow-sm object-contain cursor-pointer"
-            onClick={() => setZoom(true)} // klik untuk zoom
+            onClick={() => setZoom(true)}
           />
         </div>
 
-        {/* Modal Zoom */}
         {zoom && (
           <div
             className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
             onClick={() => setZoom(false)}
           >
             <img
-              src={AverageImg}
-              alt="Zoomed contoh AVERAGE"
+              src={Not2}
+              alt="Zoomed contoh NOT"
               className="max-h-[95vh] max-w-[95vw] object-contain"
             />
           </div>
         )}
 
-        {/* RUMUS */}
         <div className="bg-gray-50 rounded-xl p-4 border">
           <p className="text-sm text-gray-600 mb-2">Rumus yang digunakan:</p>
           <code className="block bg-white rounded-lg px-4 py-2 text-sm text-indigo-600 font-medium">
-            =AVERAGE(B2:B6)
+            =NOT(C2&gt;=70)
           </code>
         </div>
 
-        {/* HASIL */}
         <div className="flex flex-col sm:flex-row items-center justify-between bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-3 gap-2 text-center sm:text-left">
           <span className="font-medium text-indigo-700">Hasil Perhitungan</span>
-          <span className="text-lg font-bold text-indigo-700">75</span>
+          <span className="text-lg font-bold text-indigo-700">FALSE → TIDAK LULUS</span>
         </div>
 
-        {/* CATATAN TAMBAHAN */}
         <div className="text-xs text-gray-500 leading-relaxed">
-          💡 <strong>Catatan: </strong> fungsi AVERAGE akan otomatis menghitung rata-rata dari range yang dipilih.
+          💡 <strong>Catatan: </strong> fungsi NOT akan membalikkan hasil logika dari kondisi yang diuji.
         </div>
       </div>
     </RumusTemplate>

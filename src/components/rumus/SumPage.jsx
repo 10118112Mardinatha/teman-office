@@ -21,6 +21,7 @@ export default function SumPage() {
       title="SUM"
       functionDesc=" Fungsi SUM digunakan untuk menjumlahkan angka dalam satu atau beberapa sel di Excel. Fungsi ini adalah rumus paling dasar dan paling sering digunakan dalam pekerjaan sehari-hari seperti laporan, keuangan, dan rekap data."
       usage="Gunakan SUM saat kamu ingin menghitung total nilai, seperti total penjualan, jumlah nilai siswa, total pengeluaran, atau rekap data numerik lainnya. Dengan cara sederhana, kamu tinggal memasukkan range sel yang ingin dijumlahkan. seperti Contoh dibawah ini : gunakan SUM(RANGE)."
+      templaterumus={'=SUM(range) \n \n range → kumpulan sel yang ingin dijumlahkan \n Contoh: SUM(A1:A10)'} 
       example="=SUM(B2:B5)"
       usageImage="/src/assets/contoh/sum.png"
       videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
