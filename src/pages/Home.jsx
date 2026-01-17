@@ -6,8 +6,10 @@ import {
   FaSortNumericUp,
   FaBrain,
   FaFont,
-  FaCalendarAlt,
+  FaCompress,
   FaSearch,
+  FaClipboardList,
+  FaColumns,
 } from "react-icons/fa";
 
 import IntroCard from "../components/IntroCard";
@@ -37,25 +39,25 @@ const categories = [
     items: ["IF", "IFS", "AND", "OR"],
   },
   {
-    title: "Rumus Teks",
+    title: "Rumus Ekstrak Data",
     desc: "Pengolahan teks",
     icon: <FaFont />,
     color: "from-orange-400 to-orange-600",
     items: ["LEFT", "RIGHT", "MID", "LEN"],
   },
   {
-    title: "Rumus Tanggal",
-    desc: "Tanggal & waktu",
-    icon: <FaCalendarAlt />,
+    title: "Rumus Merapikan Data",
+    desc: "Merapikan dan menggabungkan data",
+    icon: <FaColumns />,
     color: "from-pink-400 to-pink-600",
-    items: ["TODAY", "NOW", "YEAR", "MONTH"],
+    items: ["CONCATENATE", "&", "UPPER", "LOWER", "PROPER"],
   },
   {
     title: "Rumus Lookup",
     desc: "Pencarian data",
     icon: <FaSearch />,
     color: "from-indigo-400 to-indigo-600",
-    items: ["VLOOKUP", "HLOOKUP", "XLOOKUP"],
+    items: ["VLOOKUP", "HLOOKUP"],
   },
 ];
 
