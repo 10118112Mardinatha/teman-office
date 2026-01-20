@@ -1,5 +1,5 @@
 import RumusTemplate from "./RumusTemplate";
-//import contohKasusSum from "/src/assets/contoh/sum-case.png";   
+import contohKasusSum from "/src/assets/contoh/&2.png";   
 import ExcelEmbed from "./ExcelEmbed";
 import { useState } from "react";
 
@@ -76,6 +76,61 @@ export default function AmpersandPage() {
               </div>
             }
     >
+
+        {/* CONTOH KASUS */}
+            <div className="space-y-5 w-full">
+              {/* JUDUL */}
+              <div>
+                <h3 className="font-semibold text-lg mb-1">Mengambungkan Tiga cell</h3>
+                <p className="text-sm text-gray-600">
+                  Perhatikan contoh data harga barang di Excel berikut. Dalam kasus ini akan membuat kode produk yang mana isinya gabungan dari kode barang, kode tahun, dan kode negara.
+                  Rumus yang digunakan adalah &.
+                </p>
+              </div>
+      
+              {/* GAMBAR CONTOH */}
+              <div className="flex justify-center">
+                <img
+                  src={contohKasusSum}
+                  alt="Contoh penggunaan rumus SUM di Excel"
+                  className="max-h-72 rounded-xl border shadow-sm object-contain cursor-pointer"
+                  onClick={() => setZoom(true)} // klik untuk zoom
+                />
+              </div>
+      
+              {/* Modal Zoom */}
+              {zoom && (
+                <div
+                  className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+                  onClick={() => setZoom(false)}
+                >
+             <img
+        src={contohKasusSum}
+        alt="Zoomed contoh SUM"
+        className="max-h-[95vh] max-w-[95vw] object-contain"
+      />
+                </div>
+              )}
+      
+              {/* RUMUS */}
+              <div className="bg-gray-50 rounded-xl p-4 border">
+                <p className="text-sm text-gray-600 mb-2">Rumus yang digunakan:</p>
+                <code className="block bg-white rounded-lg px-4 py-2 text-sm text-indigo-600 font-medium">
+                  =B2&C2&D2
+                </code>
+              </div>
+      
+              {/* HASIL */}
+              <div className="flex flex-col sm:flex-row items-center justify-between bg-indigo-50 border border-indigo-200 rounded-xl px-4 py-3 gap-2 text-center sm:text-left">
+                <span className="font-medium text-indigo-700">Hasil adalah</span>
+                <span className="text-lg font-bold text-indigo-700">KMA2025JPN</span>
+              </div>
+      
+              {/* CATATAN TAMBAHAN */}
+              <div className="text-xs text-gray-500 leading-relaxed">
+                💡 <strong>Catatan: </strong> jangan lupa menggunakan ',' untuk pemisah antara cell yang ingin dijumlahkan.
+              </div>
+            </div>
     </RumusTemplate>
   );
 }
