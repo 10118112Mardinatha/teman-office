@@ -49,7 +49,14 @@ export default function Footer() {
   }, [isRumusPage]);
 
   return (
-    <footer className="text-white bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700">
+<footer
+      className={`text-white transition-colors duration-500 ${
+        isRumusPage
+          ? "bg-gradient-to-r from-green-800 via-green-700 to-green-600" // hijau untuk halaman rumus
+          : "bg-gradient-to-r from-indigo-600 via-blue-600 to-indigo-700" // default biru
+      }`}
+    >
+
       <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col gap-8">
 
         {/* TOP ROW */}

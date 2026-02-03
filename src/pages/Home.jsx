@@ -21,42 +21,42 @@ const categories = [
     title: "Rumus Perhitungan",
     desc: "Penjumlahan & statistik",
     icon: <FaCalculator />,
-    color: "from-green-400 to-green-600",
+    color: "from-emerald-400 to-emerald-600", // hijau segar, lebih profesional
     items: ["SUM", "AVERAGE", "COUNT", "COUNTA", "MAX", "SUMPRODUCT"],
   },
   {
     title: "Rumus Pembulatan",
     desc: "Pembulatan angka",
     icon: <FaSortNumericUp />,
-    color: "from-blue-400 to-blue-600",
+    color: "from-sky-400 to-sky-600", // biru muda cerah, friendly
     items: ["ROUND", "ROUNDUP", "ROUNDDOWN", "CEILING", "FLOOR"],
   },
   {
     title: "Rumus Logika",
     desc: "Logika & kondisi",
     icon: <FaBrain />,
-    color: "from-purple-400 to-purple-600",
+    color: "from-violet-400 to-violet-600", // ungu elegan
     items: ["IF", "IFS", "AND", "OR"],
   },
   {
     title: "Rumus Ekstrak Data",
     desc: "Pengolahan Data ",
     icon: <FaDatabase />,
-    color: "from-orange-400 to-orange-600",
+    color: "from-orange-400 to-orange-500", // oranye hangat, energik
     items: ["LEFT", "RIGHT", "MID", "LEN"],
   },
   {
     title: "Rumus Merapikan Data",
     desc: "Merapikan dan menggabungkan data",
     icon: <FaColumns />,
-    color: "from-pink-400 to-pink-600",
+    color: "from-pink-400 to-pink-500", // pink lembut, playful
     items: ["CONCATENATE", "&", "UPPER", "LOWER", "PROPER"],
   },
   {
     title: "Rumus Lookup",
     desc: "Pencarian data",
     icon: <FaSearch />,
-    color: "from-indigo-400 to-indigo-600",
+    color: "from-indigo-400 to-indigo-600", // biru tua, memberi kesan serius
     items: ["VLOOKUP", "HLOOKUP"],
   },
 ];
