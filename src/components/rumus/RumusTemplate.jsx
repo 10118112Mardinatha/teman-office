@@ -111,6 +111,7 @@ export default function RumusTemplate({
           <p className="text-sm font-bold text-black mb-2 whitespace-pre-line"> {templaterumus} </p>
         </div>
       </motion.section>
+      
 
       {/* KAPAN DIGUNAKAN */}
       <motion.section
@@ -169,7 +170,20 @@ export default function RumusTemplate({
         </h2>
         {children}
       </motion.section>
+  <section className="max-w-7xl mx-auto px-6 my-12">
+          <div className="w-full overflow-hidden flex justify-center">
+            <div
+              id="container-d7c0dd0dcc6ee62bd093f4189ef6f18c"
+              className="w-full max-w-full"
+            ></div>
 
+            <script
+              async
+              data-cfasync="false"
+              src="https://pl28561026.effectivegatecpm.com/d7c0dd0dcc6ee62bd093f4189ef6f18c/invoke.js"
+            ></script>
+          </div>
+        </section>
       {/* Uji coba */}
       <motion.section
         variants={fadeUp}
