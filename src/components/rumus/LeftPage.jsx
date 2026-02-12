@@ -24,7 +24,7 @@ export default function LeftPage() {
       templaterumus={'=LEFT(text, num_chars) \n \n text → teks atau sel yang berisi data \n num_chars → jumlah karakter yang diambil dari kiri'}
       example={'=LEFT(A2, 3) \n A2 -> Cell'}
       usageImage="/src/assets/contoh/left1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/sTzHPNIAfFY"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

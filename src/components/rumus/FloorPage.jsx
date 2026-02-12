@@ -24,7 +24,7 @@ export default function FloorPage() {
       example="=FLOOR(4.7,1)"
       templaterumus={'=FLOOR(number, significance)\nnumber → angka yang ingin dibulatkan\nsignificance → kelipatan pembulatan'}
       usageImage="/src/assets/contoh/floor1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/QWoJDEv7Xc8"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

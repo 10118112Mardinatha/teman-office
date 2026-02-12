@@ -24,7 +24,7 @@ export default function MidPage() {
       templaterumus={'=MID(text, start_num, num_chars) \n \n text → teks atau sel yang berisi data \n start_num → posisi awal karakter \n num_chars → jumlah karakter yang diambil dari kiri'}
       example="=MID(A2, 5, 4)"
       usageImage="/src/assets/contoh/mid1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/XOWpfi_GIPI"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

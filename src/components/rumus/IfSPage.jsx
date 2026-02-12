@@ -24,7 +24,7 @@ export default function IfsPage() {
       example='=IFS(C2>=85,"A",C2>=70,"B",C2>=50,"C",C2<50,"D")'
       templaterumus={`=IFS(logical_test1, value_if_true1, [logical_test2, value_if_true2], ...) \n logical_test → kondisi yang diuji \n value_if_true → hasil jika kondisi benar`}
       usageImage="/src/assets/contoh/ifs1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/yiOO_2ZYQmo"
       test={
         <div className="mt-4 space-y-6 w-full">
           <div className="p-5 space-y-4 w-full">

@@ -24,7 +24,7 @@ export default function SumproductPage() {
       example="=SUMPRODUCT(B2:B5,C2:C5)"
       templaterumus={'=SUMPRODUCT(array1, [array2], ...)\narray1 → range pertama\narray2 → range kedua'}
       usageImage="/src/assets/contoh/sumproduct1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/CWuTvrOseTw"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

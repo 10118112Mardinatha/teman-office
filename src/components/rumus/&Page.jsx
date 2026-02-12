@@ -24,7 +24,7 @@ export default function AmpersandPage() {
       templaterumus={'=teks1 & teks2 ... \n \n text1 → teks atau sel yang berisi data \n text2 → teks atau sel yang berisi data '}
       example='=A2 & "  " & B2'
       usageImage="/src/assets/contoh/&1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/Yx4gacXQfQA"
       test={
               <div className="mt-4 space-y-6 w-full">
                 {/* SOAL UJI COBA */}

@@ -24,7 +24,7 @@ export default function MaxPage() {
       example="=MAX(B2:B10)"
       templaterumus={'=MAX(number1, [number2], ...)\nnumber1 → angka pertama\nnumber2 → angka kedua (opsional)'}
       usageImage="/src/assets/contoh/max1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/t6Z3Fv_xJmg"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

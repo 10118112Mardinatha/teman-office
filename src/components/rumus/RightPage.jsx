@@ -24,7 +24,7 @@ export default function RightPage() {
       usage="Penggunaan RIGHT contohnya seperti kasus ini. Kita ingin mengambil kode tahun yang ada pada kode produk. Maka kita gunakan LEFT dan pilih sel yang dipakai lalu masukan angka sesuai berapa karakter yang ingin diambil."
       example="=RIGHT(A2, 4)"
       usageImage="/src/assets/contoh/right1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/D327JIIfYuo"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

@@ -24,7 +24,7 @@ export default function HlookupPage() {
       templaterumus={'=HLOOKUP(value, range, col_num, [false atau true]) \n \n value → nilai yang ingin dicari \n range → tabel referensi \n row_num → Nomor row atau cell number dalam range yang yang nilainya akan dipanggil atau ditampilkan \n [false atau true] → FALSE (cocok persis) / TRUE (mendekati)'}
       example='=HLOOKUP(A11, A2:D7, 4, FALSE)'
       usageImage="/src/assets/contoh/hlookup1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/watch?v=_7hN0MMY7s4"
       test={
               <div className="mt-4 space-y-6 w-full">
                 {/* SOAL UJI COBA */}

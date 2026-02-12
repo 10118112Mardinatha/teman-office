@@ -24,7 +24,7 @@ export default function RoundupPage() {
       example="=ROUNDUP(3.14159,2)"
       templaterumus={'=ROUNDUP(number, num_digits)\nnumber → angka yang ingin dibulatkan\nnum_digits → jumlah digit yang diinginkan'}
       usageImage="/src/assets/contoh/roundup1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/ELQTjGFegsc"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

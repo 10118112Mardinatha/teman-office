@@ -24,7 +24,7 @@ export default function ConcatenatePage() {
       templaterumus={'=CONCATENATE(teks1, teks2, ...) \n \n text1 → teks atau sel yang berisi data \n text2 → teks atau sel yang berisi data '}
       example='=CONCATENATE(A2," ",B2)'
       usageImage="/src/assets/contoh/concatenate1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/1z6U6Pk-8fU"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

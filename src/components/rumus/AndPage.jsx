@@ -25,7 +25,7 @@ export default function AndPage() {
       example="=AND(B2>70,C2>70)"
       templaterumus={'=AND(logical1, [logical2], ...) \n logical1 → kondisi pertama \n logical2 → kondisi kedua (opsional) \n ... → kondisi tambahan (opsional)'}
       usageImage="/src/assets/contoh/and1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/ibecQp8Y6ys"
       test={
   <div className="mt-4 space-y-6 w-full">
     {/* SOAL UJI COBA */}

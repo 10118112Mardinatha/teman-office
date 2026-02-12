@@ -24,7 +24,7 @@ export default function CountaPage() {
       example="=COUNTA(B2:B10)"
       templaterumus={'=COUNTA(value1, [value2], ...)\nvalue1 → cell pertama\nvalue2 → cell kedua (opsional)'}
       usageImage="/src/assets/contoh/counta1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/QbQ_iHIV8XA"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

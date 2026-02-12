@@ -24,7 +24,7 @@ export default function LenPage() {
       templaterumus={'=LEN(text) \n \n text → teks atau sel yang berisi data'}
       example="=LEN(A2)"
       usageImage="/src/assets/contoh/len1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/yv_odSehPRM"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

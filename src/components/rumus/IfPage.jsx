@@ -25,7 +25,7 @@ export default function IfPage() {
       example='=IF(C2>=70,"LULUS","TIDAK LULUS")'
       templaterumus={`=IF(logical_test, value_if_true, value_if_false) \n logical_test → kondisi yang diuji \n value_if_true → hasil jika kondisi benar \n value_if_false → hasil jika kondisi salah`}
       usageImage="/src/assets/contoh/if1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/RNSpBhGnPwM"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

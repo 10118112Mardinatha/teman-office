@@ -24,7 +24,7 @@ export default function UpperPage() {
       templaterumus={'=UPPER(teks) \n \n teks→ teks atau sel yang akan diubah menjadi huruf besar'}
       example='=UPPER(B2)'
       usageImage="/src/assets/contoh/upper1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/2suaI8DT5Bs"
       test={
               <div className="mt-4 space-y-6 w-full">
                 {/* SOAL UJI COBA */}

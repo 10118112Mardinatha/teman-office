@@ -24,7 +24,7 @@ export default function RoundPage() {
       example="=ROUND(3.14159,2)"
       templaterumus={'=ROUND(number, num_digits)\nnumber → angka yang ingin dibulatkan\nnum_digits → jumlah digit yang diinginkan'}
       usageImage="/src/assets/contoh/round1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/eyLegLtFWwc"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

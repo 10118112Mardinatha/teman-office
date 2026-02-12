@@ -24,7 +24,7 @@ export default function NotPage() {
       example="=NOT(B2>70)"
       templaterumus={`=NOT(logical) \n logical → kondisi yang diuji`}
       usageImage="/src/assets/contoh/not1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/9Mojq8xkEZs"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

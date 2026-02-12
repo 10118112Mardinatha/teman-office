@@ -24,7 +24,7 @@ export default function CeilingPage() {
       example="=CEILING(4.3,1)"
       templaterumus={'=CEILING(number, significance)\nnumber → angka yang ingin dibulatkan\nsignificance → kelipatan pembulatan'}
       usageImage="/src/assets/contoh/ceiling1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/8aHwA68f4OA"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

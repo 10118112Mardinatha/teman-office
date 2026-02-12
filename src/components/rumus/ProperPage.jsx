@@ -24,7 +24,7 @@ export default function ProperPage() {
       templaterumus={'=PROPER(teks) \n \n teks→ teks atau sel yang akan diubah'}
       example='=PROPER(B2)'
       usageImage="/src/assets/contoh/proper1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/TWMPhsbhrko"
       test={
               <div className="mt-4 space-y-6 w-full">
                 {/* SOAL UJI COBA */}

@@ -25,7 +25,7 @@ export default function OrPage() {
       example="=OR(B2>70,C2>70)"
       templaterumus={`=OR(logical1, [logical2], ...) \n logical1 → kondisi pertama \n logical2 → kondisi kedua (opsional) \n ... → kondisi tambahan (opsional)`}
       usageImage="/src/assets/contoh/or1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/RNSpBhGnPwM"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}

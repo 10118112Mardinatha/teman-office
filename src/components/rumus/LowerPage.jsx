@@ -24,7 +24,7 @@ export default function LowerPage() {
       templaterumus={'=LOWER(teks) \n \n teks→ teks atau sel yang akan diubah menjadi huruf kecil'}
       example='=LOWER(B2)'
       usageImage="/src/assets/contoh/lower1.png"
-      videoUrl="https://www.youtube.com/embed/ZF9BndGYndY"
+      videoUrl="https://www.youtube.com/embed/HLpb9iKKDqs"
       test={
               <div className="mt-4 space-y-6 w-full">
                 {/* SOAL UJI COBA */}

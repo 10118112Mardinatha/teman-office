@@ -24,7 +24,7 @@ export default function AveragePage() {
       example="=AVERAGE(B2:B6)"
       templaterumus={'=AVERAGE(number1, [number2], ...)\nnumber1 → angka pertama\nnumber2 → angka kedua (opsional)'}
       usageImage="/src/assets/contoh/average1.png"
-      videoUrl="https://www.youtube.com/embed/4jzvYwV0i2g"
+      videoUrl="https://www.youtube.com/embed/ExTNWyonelU"
       test={
         <div className="mt-4 space-y-6 w-full">
           {/* SOAL UJI COBA */}
