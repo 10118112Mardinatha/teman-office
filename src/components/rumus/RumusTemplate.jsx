@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 export default function RumusTemplate({
   title,
   functionDesc,
+  templaterumus,
   usage,
   example,
   usageImage,
@@ -104,7 +105,11 @@ export default function RumusTemplate({
         <h2 className="font-semibold text-lg mb-2 flex items-center gap-2">
           📘 Fungsi
         </h2>
-        <p className="text-black-600 leading-relaxed">{functionDesc}</p>
+        <p className="text-black-600 leading-relaxed py-6">{functionDesc}</p>
+         {/* RUMUS */}
+        <div className="bg-gray-50 rounded-xl p-3 border">
+          <p className="text-sm font-bold text-black mb-2 whitespace-pre-line"> {templaterumus} </p>
+        </div>
       </motion.section>
 
       {/* KAPAN DIGUNAKAN */}

@@ -20,6 +20,7 @@ export default function SumPage() {
     <RumusTemplate
       title="SUM"
       functionDesc=" Fungsi SUM digunakan untuk menjumlahkan angka dalam satu atau beberapa sel di Excel. Fungsi ini adalah rumus paling dasar dan paling sering digunakan dalam pekerjaan sehari-hari seperti laporan, keuangan, dan rekap data."
+      templaterumus={`=> =SUM(Data)  \n => Data = Diisi Range atau Sel yang ingin dijumlahkan`} 
       usage="Gunakan SUM saat kamu ingin menghitung total nilai, seperti total penjualan, jumlah nilai siswa, total pengeluaran, atau rekap data numerik lainnya. Dengan cara sederhana, kamu tinggal memasukkan range sel yang ingin dijumlahkan. seperti Contoh dibawah ini : gunakan SUM(RANGE)."
       example="=SUM(B2:B5)"
       usageImage="/src/assets/contoh/sum.png"
@@ -43,7 +44,7 @@ export default function SumPage() {
               <li>Jika benar, Excel akan menampilkan status <strong>BENAR</strong>.</li>
             </ul>
             <div className="bg-white border rounded-lg p-3 text-xs text-gray-500">
-              💡 Tips: Gunakan tanda <strong>= (tanda sama dengan) </strong> untuk menggunakan rumus
+              💡 Tips: Gunakan tanda <strong> ; (titik koma) atau , (koma) </strong> untuk menggunakan rumus tergantung versi excel kalian
             </div>
           </div>
 
